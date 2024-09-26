@@ -2,7 +2,9 @@
 @section('content')
     <div class="pageTitle">
         <h4>Customer List</h4>
-
+        @if (session('delete'))
+            <div class="alert alert-danger">{{ session('delete') }}</div>
+        @endif
         <div class="section">
             <div class="row">
                 <div class="col-lg-12">
@@ -24,17 +26,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($customers as $sl=>$customer)
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Minhaz</td>
-                                        <td>0155815</td>
-                                        <td>Tangail</td>
-                                        <td>samfjbe</td>
-                                        <td>fgrth</td>
+                                        <th scope="row">{{ $sl+1 }}</th>
+                                        <td>{{ $customer->name }}</td>
+                                        <td>{{ $customer->contact_number }}</td>
+                                        <td>{{ $customer->address }}</td>
+                                        <td>{{ $customer->doctor_name }}</td>
+                                        <td>{{ $customer->doctor_address }}</td>
                                         <td>
-                                            delte
+                                            <div class="d-flex">
+                                                <a  href="{{ route('customer.edit',$customer->id) }}" class="btn btn-info shadow btn-xs sharp del_btn"><i class="fa fa-pencil"></i></a>
+                                                &nbsp; &nbsp;
+                                                <a href="{{ route('customer.delete',$customer->id) }}" class="btn btn-danger shadow btn-xs sharp del_btn"><i class="fa fa-trash"></i></a>
+                                            </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

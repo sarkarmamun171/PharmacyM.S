@@ -491,7 +491,7 @@
   <script src="{{ asset('backend') }}/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="{{ asset('backend') }}/vendor/tinymce/tinymce.min.js"></script>
   <script src="{{ asset('backend') }}/vendor/php-email-form/validate.js"></script>
-
+  <script src="https://kit.fontawesome.com/56a6d796f4.js" crossorigin="anonymous"></script>
   <!-- Template Main JS File -->
   <script src="{{ asset('backend') }}/js/main.js"></script>
 

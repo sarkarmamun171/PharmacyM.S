@@ -32,4 +32,8 @@ Route::group(['middleware'=='admin'],function(){
     //Customer Information
     Route::get('/admin/custmer/add',[CustomerController::class,'customer_add'])->name('customer.add');
     Route::get('/admin/custmer/list',[CustomerController::class,'customer_list'])->name('customer.list');
+    Route::post('/customer/store',[CustomerController::class,'customer_store'])->name('customer.store');
+    Route::get('/customer/edit/{id}',[CustomerController::class,'customer_edit'])->name('customer.edit');
+    Route::post('/customer/update/{id}',[CustomerController::class,'customer_update'])->name('customer.update');
+    Route::get('/customer/delete/{id}',[CustomerController::class,'customer_delete'])->name('customer.delete');
 });
