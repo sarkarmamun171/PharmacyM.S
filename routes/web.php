@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[AuthController::class,'login'])->name('login');
 Route::get('/forgot',[AuthController::class,'forgot'])->name('forgot');
 Route::post('/login-post',[AuthController::class,'login_post'])->name('login.post');
+Route::get('lagout',[AuthController::class,'logout'])->name('logout');
 
 //Dashboard
 Route::group(['middleware'=='admin'],function(){
