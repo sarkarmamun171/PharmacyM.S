@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MedicineController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,4 +37,9 @@ Route::group(['middleware'=='admin'],function(){
     Route::get('/customer/edit/{id}',[CustomerController::class,'customer_edit'])->name('customer.edit');
     Route::post('/customer/update/{id}',[CustomerController::class,'customer_update'])->name('customer.update');
     Route::get('/customer/delete/{id}',[CustomerController::class,'customer_delete'])->name('customer.delete');
+
+    //Medicines
+    Route::get('/admin/medicine/add',[MedicineController::class,'medicine_add'])->name('medicine.add');
+    Route::get('/admin/medicine/list',[MedicineController::class,'medicine_list'])->name('medicine.list');
+    Route::post('/admin/medicine/store',[MedicineController::class,'medicine_store'])->name('medicine.store');
 });
