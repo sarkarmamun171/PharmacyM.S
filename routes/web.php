@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +29,7 @@ Route::post('forgot-post',[AuthController::class,'forgot_post'])->name('forgot.p
 //Dashboard
 Route::group(['middleware'=='admin'],function(){
     Route::get('/admin/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
+    //Customer Information
+    Route::get('/admin/custmer/add',[CustomerController::class,'customer_add'])->name('customer.add');
+    Route::get('/admin/custmer/list',[CustomerController::class,'customer_list'])->name('customer.list');
 });
