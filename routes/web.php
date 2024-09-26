@@ -23,6 +23,7 @@ Route::get('/',[AuthController::class,'login'])->name('login');
 Route::get('/forgot',[AuthController::class,'forgot'])->name('forgot');
 Route::post('/login-post',[AuthController::class,'login_post'])->name('login.post');
 Route::get('lagout',[AuthController::class,'logout'])->name('logout');
+Route::post('forgot-post',[AuthController::class,'forgot_post'])->name('forgot.post');
 
 //Dashboard
 Route::group(['middleware'=='admin'],function(){

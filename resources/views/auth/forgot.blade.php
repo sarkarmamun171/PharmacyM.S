@@ -55,17 +55,22 @@
 
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">Forgot to Your Account</h5>
-                    <p class="text-center small">Enter your Email & password to login</p>
+                    <p class="text-center small">Enter your Email to login</p>
                   </div>
-
-                  <form class="row g-3 needs-validation" novalidate>
-
+                  @if (session('success'))
+                    <div class="alert alert-danger">{{ session('success') }}</div>
+                  @endif
+                  @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                  @endif
+                  <form action="{{ route('forgot.post') }}" method="POST" class="row g-3 needs-validation" novalidate>
+                    @csrf
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
+                      <label class="form-label">Email</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <input type="text" name="email" class="form-control" required value="{{ old('email') }}">
+                        <div class="invalid-feedback">Please enter your Email.</div>
                       </div>
                     </div>
                     <div class="col-12">
