@@ -47,4 +47,9 @@ class MedicineController extends Controller
         ]);
         return back()->with('success','Medicine Updated Successfully');
     }
+    public function medicine_delete($id){
+        Medicine::find($id)->delete();
+
+        return back()->with('delete','Medicine Delete Successfully');
+    }
 }
