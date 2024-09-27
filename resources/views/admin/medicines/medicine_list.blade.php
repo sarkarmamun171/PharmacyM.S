@@ -38,7 +38,7 @@
                                             <div class="d-flex">
                                                 <a  href="{{ route('medicine.edit',$medicine->id) }}" class="btn btn-info shadow btn-xs sharp del_btn"><i class="fa fa-pencil"></i></a>
                                                 &nbsp; &nbsp;
-                                                <a href="{{ route('medicine.delete',$medicine->id) }}" class="btn btn-danger shadow btn-xs sharp del_btn"><i class="fa fa-trash"></i></a>
+                                                <a href="{{ route('medicine.delete',$medicine->id) }}" class="btn btn-danger shadow btn-xs sharp del_btn" onclick=" return confirm('Are you sure want to Delete?')"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>

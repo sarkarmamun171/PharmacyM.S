@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('packing');
             $table->string('generic_name');
             $table->string('supplier_name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
