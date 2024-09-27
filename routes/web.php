@@ -42,4 +42,6 @@ Route::group(['middleware'=='admin'],function(){
     Route::get('/admin/medicine/add',[MedicineController::class,'medicine_add'])->name('medicine.add');
     Route::get('/admin/medicine/list',[MedicineController::class,'medicine_list'])->name('medicine.list');
     Route::post('/admin/medicine/store',[MedicineController::class,'medicine_store'])->name('medicine.store');
+    Route::get('/admin/medicine/edit/{id}',[MedicineController::class,'medicine_edit'])->name('medicine.edit');
+    Route::post('/admin/medicine/update/{id}',[MedicineController::class,'medicine_update'])->name('medicine.update');
 });

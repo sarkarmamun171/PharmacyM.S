@@ -36,7 +36,7 @@
 
                                         <td>
                                             <div class="d-flex">
-                                                <a  href="#" class="btn btn-info shadow btn-xs sharp del_btn"><i class="fa fa-pencil"></i></a>
+                                                <a  href="{{ route('medicine.edit',$medicine->id) }}" class="btn btn-info shadow btn-xs sharp del_btn"><i class="fa fa-pencil"></i></a>
                                                 &nbsp; &nbsp;
                                                 <a href="#" class="btn btn-danger shadow btn-xs sharp del_btn"><i class="fa fa-trash"></i></a>
                                             </div>

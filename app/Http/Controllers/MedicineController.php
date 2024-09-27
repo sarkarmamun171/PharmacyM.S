@@ -32,5 +32,19 @@ class MedicineController extends Controller
         ]);
         return back()->with('success','Medicine Added Successfully');
     }
-
+    public function medicine_edit(Request $request,$id){
+        $medicines = Medicine::find($id);
+        return view('admin.medicines.medicine_edit',[
+            'medicines'=>$medicines,
+        ]);
+    }
+    public function medicine_update(Request $request,$id){
+        Medicine::find($request->id)->update([
+            'medicine_name'=>$request->medicine_name,
+            'packing'=>$request->packing,
+            'generic_name'=>$request->generic_name,
+            'supplier_name'=>$request->supplier_name,
+        ]);
+        return back()->with('success','Medicine Updated Successfully');
+    }
 }
