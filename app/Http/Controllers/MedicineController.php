@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Medicine;
+use App\Models\MedicineStock;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MedicineController extends Controller
@@ -29,6 +31,7 @@ class MedicineController extends Controller
             'packing'=>$request->packing,
             'generic_name'=>$request->generic_name,
             'supplier_name'=>$request->supplier_name,
+            'created_at'=>Carbon::now(),
         ]);
         return back()->with('success','Medicine Added Successfully');
     }
@@ -44,6 +47,7 @@ class MedicineController extends Controller
             'packing'=>$request->packing,
             'generic_name'=>$request->generic_name,
             'supplier_name'=>$request->supplier_name,
+            'updated_at'=>Carbon::now(),
         ]);
         return back()->with('success','Medicine Updated Successfully');
     }
@@ -53,9 +57,33 @@ class MedicineController extends Controller
         return back()->with('delete','Medicine Delete Successfully');
     }
     public function medicine_stock_add(){
-        return view('admin.medicineStock.medicineStockAdd');
+        $medicines = Medicine::all();
+        return view('admin.medicineStock.medicineStockAdd',[
+            'medicines'=>$medicines,
+        ]);
     }
     public function medicine_stock_list(){
         return view('admin.medicineStock.medicineStockList');
+    }
+    public function medicine_stock_store(Request $request){
+        // print_r($request->all());
+        $request->validate([
+            'medicines_id'=>'required',
+            'batch_id'=>'required',
+            'expiry_date'=>'required',
+            'quantity'=>'required',
+            'mrp'=>'required',
+            'rate'=>'required',
+        ]);
+        MedicineStock::insert([
+            'medicines_id'=>$request->medicines_id,
+            'batch_id'=>$request->batch_id,
+            'expiry_date'=>$request->expiry_date,
+            'quantity'=>$request->quantity,
+            'mrp'=>$request->mrp,
+            'rate'=>$request->rate,
+            'created_at'=>Carbon::now(),
+        ]);
+        return back()->with('success','Medicine Store in Added');
     }
 }

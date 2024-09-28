@@ -50,6 +50,7 @@ Route::group(['middleware'=='admin'],function(){
     //Medicine stock
     Route::get('/admin/medicine/stock/add',[MedicineController::class,'medicine_stock_add'])->name('medicine.stock.add');
     Route::get('/admin/medicine/stock/list',[MedicineController::class,'medicine_stock_list'])->name('medicine.stock.list');
+    Route::post('/admin/medicine/stock/store',[MedicineController::class,'medicine_stock_store'])->name('medicine.stock.store');
 
 
 });
