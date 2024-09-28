@@ -52,4 +52,10 @@ class MedicineController extends Controller
 
         return back()->with('delete','Medicine Delete Successfully');
     }
+    public function medicine_stock_add(){
+        return view('admin.medicineStock.medicineStockAdd');
+    }
+    public function medicine_stock_list(){
+        return view('admin.medicineStock.medicineStockList');
+    }
 }
