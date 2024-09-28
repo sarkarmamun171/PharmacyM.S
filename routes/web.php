@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\SuppliersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,6 +53,13 @@ Route::group(['middleware'=='admin'],function(){
     Route::get('/admin/medicine/stock/list',[MedicineController::class,'medicine_stock_list'])->name('medicine.stock.list');
     Route::post('/admin/medicine/stock/store',[MedicineController::class,'medicine_stock_store'])->name('medicine.stock.store');
     Route::get('/admin/medicine/stock/edit{id}',[MedicineController::class,'medicine_stock_edit'])->name('medicine.stock.edit');
+    Route::get('/admin/medicine/stock/delete{id}',[MedicineController::class,'medicine_stock_delete'])->name('medicine.stock.delete');
 
-
+    //Suppliers
+    Route::get('/admin/supplier/list',[SuppliersController::class,'suppiler_list'])->name('supplier.list');
+    Route::get('/admin/supplier/add',[SuppliersController::class,'supplier_add'])->name('supplier.add');
+    Route::post('/admin/supplier/store',[SuppliersController::class,'supplier_store'])->name('supplier.store');
+    Route::get('/admin/supplier/edit/{id}',[SuppliersController::class,'supplier_edit'])->name('supplier.edit');
+    Route::get('/admin/supplier/delete/{id}',[SuppliersController::class,'supplier_delete'])->name('supplier.delete');
+    Route::post('/admin/supplier/update/{id}',[SuppliersController::class,'supplier_update'])->name('supplier.update');
 });

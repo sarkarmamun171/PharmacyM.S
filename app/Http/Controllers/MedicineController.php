@@ -97,5 +97,9 @@ class MedicineController extends Controller
         'medis'=>$medis,
        ]);
     }
+    public function medicine_stock_delete($id){
+        MedicineStock::find($id)->delete();
+        return back()->with('delete','Delete Successfully');
+    }
 
 }

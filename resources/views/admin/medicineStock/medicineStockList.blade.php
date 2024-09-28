@@ -2,9 +2,9 @@
 @section('content')
     <div class="pageTitle">
         <h4>Medicine Stock List</h4>
-        {{-- @if (session('delete'))
+        @if (session('delete'))
             <div class="alert alert-danger">{{ session('delete') }}</div>
-        @endif --}}
+        @endif
         <div class="section">
             <div class="row">
                 <div class="col-lg-12">
@@ -41,7 +41,7 @@
                                             <div class="d-flex">
                                                 <a  href="{{ route('medicine.stock.edit',$medicineStock->id) }}" class="btn btn-info shadow btn-xs sharp del_btn"><i class="fa fa-pencil"></i></a>
                                                 &nbsp; &nbsp;
-                                                <a href="#" class="btn btn-danger shadow btn-xs sharp del_btn" onclick=" return confirm('Are you sure want to Delete?')"><i class="fa fa-trash"></i></a>
+                                                <a href="{{ route('medicine.stock.delete',$medicineStock->id) }}" class="btn btn-danger shadow btn-xs sharp del_btn" onclick=" return confirm('Are you sure want to Delete?')"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>
