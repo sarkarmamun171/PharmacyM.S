@@ -9,4 +9,8 @@ class MedicineStock extends Model
 {
     use HasFactory;
     protected $guarded =['id'];
+
+    function rel_to_medicine(){
+        return $this->belongsTo(Medicine::class,'medicines_id');
+    }
 }

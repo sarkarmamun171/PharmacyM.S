@@ -63,7 +63,10 @@ class MedicineController extends Controller
         ]);
     }
     public function medicine_stock_list(){
-        return view('admin.medicineStock.medicineStockList');
+        $medicineStocks = MedicineStock::all();
+        return view('admin.medicineStock.medicineStockList',[
+            'medicineStocks'=>$medicineStocks,
+        ]);
     }
     public function medicine_stock_store(Request $request){
         // print_r($request->all());
@@ -86,4 +89,13 @@ class MedicineController extends Controller
         ]);
         return back()->with('success','Medicine Store in Added');
     }
+    public function medicine_stock_edit($id){
+        $medicines = MedicineStock::find($id);
+        $medis = Medicine::all();
+       return view('admin.medicineStock.medicineStockEdit',[
+        'medicines'=>$medicines,
+        'medis'=>$medis,
+       ]);
+    }
+
 }

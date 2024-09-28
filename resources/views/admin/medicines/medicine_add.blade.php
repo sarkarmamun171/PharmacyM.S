@@ -24,7 +24,7 @@
                         <div class="row mb-3">
                             <label for="" class="col-sm-2 col-form-label">Packing<span style="color:red">*</span></label>
                             <div class="col-sm-10">
-                                <input type="number" name="packing" class="form-control" required>
+                                <input type="text" name="packing" class="form-control" required>
                             </div>
                         </div>
                         <div class="row mb-3">
