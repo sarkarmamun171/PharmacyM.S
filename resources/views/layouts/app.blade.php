@@ -363,19 +363,14 @@
           <i class="bi bi-journal-text"></i><span>Invoices</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li>
+                <a href="{{ route('invoice.add') }}">
+                  <i class="bi bi-circle"></i><span>Invoice Add</span>
+                </a>
+              </li>
           <li>
             <a href="icons-bootstrap.html">
-              <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href="icons-remix.html">
-              <i class="bi bi-circle"></i><span>Remix Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href="icons-boxicons.html">
-              <i class="bi bi-circle"></i><span>Boxicons</span>
+              <i class="bi bi-circle"></i><span>Invoice List</span>
             </a>
           </li>
         </ul>
