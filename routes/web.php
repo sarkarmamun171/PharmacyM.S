@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\SuppliersController;
 use Illuminate\Support\Facades\Route;
@@ -62,4 +63,7 @@ Route::group(['middleware'=='admin'],function(){
     Route::get('/admin/supplier/edit/{id}',[SuppliersController::class,'supplier_edit'])->name('supplier.edit');
     Route::get('/admin/supplier/delete/{id}',[SuppliersController::class,'supplier_delete'])->name('supplier.delete');
     Route::post('/admin/supplier/update/{id}',[SuppliersController::class,'supplier_update'])->name('supplier.update');
+
+    //Invoice
+    Route::get('/admin/invoice/list',[InvoicesController::class,'invoice_list'])->name('invoice.list');
 });
