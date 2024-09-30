@@ -354,7 +354,6 @@
               <i class="bi bi-circle"></i><span>Supplier List</span>
             </a>
           </li>
-
         </ul>
       </li><!-- End Charts Nav -->
 
@@ -369,13 +368,30 @@
                 </a>
               </li>
           <li>
-            <a href="icons-bootstrap.html">
+            <a href="{{ route('invoice.list') }}">
               <i class="bi bi-circle"></i><span>Invoice List</span>
             </a>
           </li>
         </ul>
       </li><!-- End Icons Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#icons-nav1" data-bs-toggle="collapse" href="#">
+            <i class="fa-solid fa-cart-shopping"></i><span>Purchases</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="icons-nav1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li>
+                <a href="{{ route('purchases.add') }}">
+                  <i class="bi bi-circle"></i><span>Purchases Add</span>
+                </a>
+              </li>
+          <li>
+            <a href="{{ route('purchases.list') }}">
+              <i class="bi bi-circle"></i><span>Purchases List</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Icons Nav -->
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">

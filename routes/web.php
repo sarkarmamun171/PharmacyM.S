@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\PurchasesController;
 use App\Http\Controllers\SuppliersController;
 use Illuminate\Support\Facades\Route;
 
@@ -71,4 +72,12 @@ Route::group(['middleware'=='admin'],function(){
     Route::get('/admin/invoice/edit/{id}',[InvoicesController::class,'invoice_edit'])->name('invoice.edit');
     Route::post('/admin/invoice/update/{id}',[InvoicesController::class,'invoice_update'])->name('invoice.update');
     Route::get('/admin/invoice/delete/{id}',[InvoicesController::class,'invoice_delete'])->name('invoice.delete');
+
+    //Purchases Info
+    Route::get('/admin/purchases/add',[PurchasesController::class,'purchases_add'])->name('purchases.add');
+    Route::post('/admin/purchases/store',[PurchasesController::class,'purchases_store'])->name('purchases.store');
+    Route::get('/admin/purchases/list',[PurchasesController::class,'purchases_list'])->name('purchases.list');
+    Route::get('/admin/purchases/edit/{id}',[PurchasesController::class,'purchases_edit'])->name('purchases.edit');
+
+
 });
