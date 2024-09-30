@@ -2,9 +2,12 @@
 @section('content')
     <div class="pageTitle">
         <h4>Invoice List</h4>
-        {{-- @if (session('delete'))
+        @if (session('success'))
+            <div class="alert alert-info">{{ session('success') }}</div>
+        @endif
+        @if (session('delete'))
             <div class="alert alert-danger">{{ session('delete') }}</div>
-        @endif --}}
+        @endif
         <div class="section">
             <div class="row">
                 <div class="col-lg-12">
@@ -38,9 +41,9 @@
                                         <td>{{ $invoice->total_amount }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                <a  href="#" class="btn btn-info shadow btn-xs sharp del_btn"><i class="fa fa-pencil"></i></a>
+                                                <a  href="{{ route('invoice.edit',$invoice->id) }}" class="btn btn-info shadow btn-xs sharp del_btn"><i class="fa fa-pencil"></i></a>
                                                 &nbsp; &nbsp;
-                                                <a href="#" class="btn btn-danger shadow btn-xs sharp del_btn" onclick=" return confirm('Are you sure want to Delete?')"><i class="fa fa-trash"></i></a>
+                                                <a href="{{ route('invoice.delete',$invoice->id) }}" class="btn btn-danger shadow btn-xs sharp del_btn" onclick=" return confirm('Are you sure want to Delete?')"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>

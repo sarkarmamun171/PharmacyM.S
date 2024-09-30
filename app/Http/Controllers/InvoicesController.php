@@ -44,4 +44,30 @@ class InvoicesController extends Controller
         ]);
         return back()->with('success','Invoice Added Successfully');
     }
+    public function invoice_edit($id){
+        $invoices = Invoice::find($id);
+        $customers = Customer::all();
+        $medicines = Medicine::all();
+        return view('admin.invoices.invoices_edit',[
+            'invoices'=>$invoices,
+            'customers'=>$customers,
+            'medicines'=>$medicines,
+        ]);
+    }
+    public function invoice_update(Request $request,$id){
+        Invoice::find($id)->update([
+            'customers_id'=>$request->customers_id,
+            'medicines_id'=>$request->medicines_id,
+            'price'=>$request->price,
+            'discount'=>$request->discount,
+            'invoices_date'=>$request->invoices_date,
+            'total_amount'=>$request->price-($request->price*$request->discount/100),
+            'updated_at'=>Carbon::now(),
+        ]);
+        return redirect()->route('invoice.list')->with('success','Invoice Updated Successfully');
+    }
+    public function invoice_delete($id){
+        Invoice::find($id)->delete();
+        return back()->with('delete','Invoice delete Successfully');
+    }
 }
