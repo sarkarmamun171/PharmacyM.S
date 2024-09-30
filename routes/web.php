@@ -67,4 +67,5 @@ Route::group(['middleware'=='admin'],function(){
     //Invoice
     Route::get('/admin/invoice/list',[InvoicesController::class,'invoice_list'])->name('invoice.list');
     Route::get('/admin/invoice/add',[InvoicesController::class,'invoice_add'])->name('invoice.add');
+    Route::post('/admin/invoice/store',[InvoicesController::class,'invoice_store'])->name('invoice.store');
 });
