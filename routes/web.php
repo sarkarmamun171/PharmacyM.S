@@ -33,6 +33,7 @@ Route::post('forgot-post',[AuthController::class,'forgot_post'])->name('forgot.p
 //Dashboard
 Route::group(['middleware'=='admin'],function(){
     Route::get('/admin/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
+    Route::get('/admin/dashboard/profile',[DashboardController::class,'dashboard_profile'])->name('dashboard.profile');
     //Customer Information
     Route::get('/admin/custmer/add',[CustomerController::class,'customer_add'])->name('customer.add');
     Route::get('/admin/custmer/list',[CustomerController::class,'customer_list'])->name('customer.list');
