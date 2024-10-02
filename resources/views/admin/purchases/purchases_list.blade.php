@@ -46,10 +46,10 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <a href="#" class="btn btn-info shadow btn-xs sharp del_btn"><i
+                                                    <a href="{{ route('purchases.edit',$purchase->id) }}" class="btn btn-info shadow btn-xs sharp del_btn"><i
                                                             class="fa fa-pencil"></i></a>
                                                     &nbsp; &nbsp;
-                                                    <a href="#" class="btn btn-danger shadow btn-xs sharp del_btn"
+                                                    <a href="{{ route('purchases.delete',$purchase->id) }}" class="btn btn-danger shadow btn-xs sharp del_btn"
                                                         onclick=" return confirm('Are you sure want to Delete?')"><i
                                                             class="fa fa-trash"></i></a>
                                                 </div>

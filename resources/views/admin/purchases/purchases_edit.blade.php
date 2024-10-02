@@ -19,7 +19,8 @@
                                 <select name="suppliers_id" id="" class="form-control">
                                     <option value="">Select Supplier Name</option>
                                     @foreach ($suppliers as $supplier)
-                                        <option value="{{ $supplier->id }}">{{ $supplier->suppliers_name }}</option>
+                                        <option value="{{ $supplier->id }}@if ($supplier->id==$purchases->id)
+                                        @endif">{{ $supplier->suppliers_name }}</option>
                                     @endforeach
                             </select>
                             </div>
@@ -28,10 +29,13 @@
                             <label for="" class="col-sm-2 col-form-label">Invoice ID</label>
                             <div class="col-sm-10">
                                 <select name="invoices_id" id="" class="form-control">
-                                    <option value="">Select Invoice</option>
-                                    @foreach ($invoices as $invoice)
-                                        <option value="{{ $invoice->id }}">{{ $invoice->id }}</option>
-                                    @endforeach
+                                    <option value="">Select Invoice Id</option>
+                                        @foreach ($invoices as $invoice)
+                                            <option value="{{ $invoice->id }}"
+                                                @if ($invoice->id==$purchases->invoices_id ) selected
+                                                @endif>
+                                    </option>
+                                        @endforeach
                                 </select>
                                 {{-- <input type="text" name="invoices_id" class="form-control" required> --}}
                             </div>
@@ -39,19 +43,19 @@
                         <div class="row mb-3">
                             <label for="" class="col-sm-2 col-form-label">Voucher Number</label>
                             <div class="col-sm-10">
-                                <input type="number" name="voucher_number" class="form-control">
+                                <input type="number" name="voucher_number" class="form-control" value="{{ $purchases->voucher_number }}">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="" class="col-sm-2 col-form-label">Purchases Date</label>
                             <div class="col-sm-10">
-                                <input type="date" name="purchases_date" class="form-control" >
+                                <input type="date" name="purchases_date" class="form-control" value="{{ $purchases->purchases_date }}">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="" class="col-sm-2 col-form-label">Total Amount</label>
                             <div class="col-sm-10">
-                                <input type="number" name="total_amount" class="form-control" >
+                                <input type="number" name="total_amount" class="form-control" value="{{ $purchases->total_amount }}">
                             </div>
                         </div>
                         <div class="row mb-3">

@@ -78,6 +78,7 @@ Route::group(['middleware'=='admin'],function(){
     Route::post('/admin/purchases/store',[PurchasesController::class,'purchases_store'])->name('purchases.store');
     Route::get('/admin/purchases/list',[PurchasesController::class,'purchases_list'])->name('purchases.list');
     Route::get('/admin/purchases/edit/{id}',[PurchasesController::class,'purchases_edit'])->name('purchases.edit');
+    Route::get('/admin/purchases/delete/{id}',[PurchasesController::class,'purchases_delete'])->name('purchases.delete');
 
 
 });

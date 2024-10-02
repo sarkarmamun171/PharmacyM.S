@@ -44,4 +44,19 @@ class PurchasesController extends Controller
             'purchases'=>$purchases,
         ]);
     }
+    public function purchases_edit($id){
+        $suppliers = Supplier::all();
+        $invoices = Invoice::all();
+        $purchases = Purchase::find($id);
+        return view('admin.purchases.purchases_edit',[
+            'suppliers'=>$suppliers,
+            'invoices'=>$invoices,
+            'purchases'=>$purchases,
+        ]);
+        return back()->with('success','Edit Added Successfully');
+    }
+    public function purchases_delete(Request $request,$id){
+        Purchase::find($id)->delete();
+        return back()->with('delete','Purchaes Deleted Successfully');
+    }
 }
