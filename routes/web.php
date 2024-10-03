@@ -34,6 +34,7 @@ Route::post('forgot-post',[AuthController::class,'forgot_post'])->name('forgot.p
 Route::group(['middleware'=='admin'],function(){
     Route::get('/admin/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
     Route::get('/admin/dashboard/profile',[DashboardController::class,'dashboard_profile'])->name('dashboard.profile');
+    Route::post('/admin/dashboard/profile/update/{id}',[DashboardController::class,'dashboard_profile_update'])->name('dashboard.profile.update');
     //Customer Information
     Route::get('/admin/custmer/add',[CustomerController::class,'customer_add'])->name('customer.add');
     Route::get('/admin/custmer/list',[CustomerController::class,'customer_list'])->name('customer.list');
